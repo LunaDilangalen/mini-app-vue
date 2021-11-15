@@ -19,7 +19,7 @@ export default {
     },
     someEventFunc () {
       console.log('The End is Worlding')
-      window.JSBridge.call('someEventInMiniApp#12321')
+      window.EventCatcher.emitEvent('payment')
     },
     sendData () {
       var response
