@@ -1,5 +1,5 @@
 <template>
-  <div class="some-scripts">
+  <div class="event-listen">
     <button @click="pay()">Pay</button>
     <button @click="promo()">Click 2 Win</button>
     <button @click="checkout()">Checkout</button>
@@ -16,30 +16,27 @@ export default {
         amount: 9999.99,
         status: 'success'
       }
-      var response = window.EventCatcher.emitEvent('payment', JSON.stringify(payload))
+      var response = window.Event.emit('payment', JSON.stringify(payload))
       alert(response)
     },
     promo () {
       const payload = {
         message: 'You won 42069.99 PhP'
       }
-      var response = window.EventCatcher.emitEvent('notification', JSON.stringify(payload))
-      alert(response)
+      window.Event.emit('notification', JSON.stringify(payload))
     },
     checkout () {
       const payload = {
         message: 'Request for geolocation'
       }
-      var response = window.EventCatcher.emitEvent('location', JSON.stringify(payload))
-      alert(response)
+      window.Event.emit('location', JSON.stringify(payload))
     },
     somefunc () {
       const payload = {
         id: '2392810320',
         message: 'Request database access'
       }
-      var response = window.EventCatcher.emitEvent('getDBAccess', JSON.stringify(payload))
-      alert(response)
+      window.Event.emit('getDBAccess', JSON.stringify(payload))
     }
   }
 }
