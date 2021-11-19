@@ -16,8 +16,7 @@ export default {
         amount: 9999.99,
         status: 'success'
       }
-      var response = window.Event.emit('payment', JSON.stringify(payload))
-      alert(response)
+      window.Event.emit('payment', JSON.stringify(payload))
     },
     promo () {
       const payload = {
